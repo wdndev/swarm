@@ -2,7 +2,7 @@
 import copy
 import json
 from collections import defaultdict
-from typing import List, Callable, Union
+from typing import List, Callable, Union, Optional
 
 # Package/library imports
 from openai import OpenAI
@@ -24,7 +24,7 @@ __CTX_VARS_NAME__ = "context_variables"
 
 
 class Swarm:
-    def __init__(self, client=None):
+    def __init__(self, client:Optional[OpenAI]=None):
         if not client:
             client = OpenAI()
         self.client = client
